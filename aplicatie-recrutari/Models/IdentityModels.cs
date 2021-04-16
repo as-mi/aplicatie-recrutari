@@ -27,6 +27,10 @@ namespace aplicatie_recrutari.Models
 aplicatie_recrutari.Migrations.Configuration>("DefaultConnection"));
         }
 
+        public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Preference> Preferences { get; set; }
+        public DbSet<Department> Departments { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
