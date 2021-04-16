@@ -23,6 +23,8 @@ namespace aplicatie_recrutari.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext,
+aplicatie_recrutari.Migrations.Configuration>("DefaultConnection"));
         }
 
         public static ApplicationDbContext Create()
