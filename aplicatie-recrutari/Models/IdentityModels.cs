@@ -30,7 +30,7 @@ aplicatie_recrutari.Migrations.Configuration>("DefaultConnection"));
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Preference> Preferences { get; set; }
         public DbSet<Department> Departments { get; set; }
-
+        public DbSet<Recruitment_Session> Recruitment_Sessions { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
