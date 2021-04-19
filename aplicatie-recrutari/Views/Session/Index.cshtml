@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Sessions";
+}
+<h2>@ViewBag.Title</h2>
+@foreach (var session in ViewBag.Recruitment_Sessions) {
+<div class="panel-body">
+    @Html.Label("Period", "Period:")
+    <br />
+    <p>@session.Period</p>
+    @Html.Label("Year", "Year:")
+    <br />
+    <p>@session.Year</p>
+
+    @using (Html.BeginForm(actionName: "Edit", controllerName: "Session", method: FormMethod.Get, routeValues:
+new { id = session.SessionId })) {
+<button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+}
+    @using (Html.BeginForm(actionName: "Delete", controllerName: "Session", method: FormMethod.Post, routeValues:
+    new { id = session.SessionId })) {
+        @Html.HttpMethodOverride(HttpVerbs.Delete)
+        <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+    }
+    <br />
+</div>
+}
+
+@Html.ActionLink("Add session", "New")

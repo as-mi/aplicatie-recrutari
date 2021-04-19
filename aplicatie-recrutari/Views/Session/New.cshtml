@@ -1,0 +1,19 @@
+﻿@model aplicatie_recrutari.Models.Recruitment_Session
+@{
+    ViewBag.Title = "Create";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm(actionName: "New", controllerName: "Session", method: FormMethod.Post)) {
+    @Html.Label("Period", "Period:")
+    <br />
+    @Html.TextBoxFor(b => b.Period, null, new { placeholder = "Type in the period", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Period, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Year", "Year:")
+    <br />
+    @Html.TextBoxFor(b => b.Year, null, new { placeholder = "Type in the Year", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Year, "", new { @class = "text-danger" })
+    <br />
+    
+    <button class="btn btn-primary" type="submit">Create</button>
+}
