@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace aplicatie_recrutari.Controllers
 {
+    [Authorize(Roles = "Editor,Admin")]
     public class SessionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
