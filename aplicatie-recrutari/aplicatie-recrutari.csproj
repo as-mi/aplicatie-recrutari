@@ -183,10 +183,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Interview.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Preference.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Recruitment_Session.cs" />
+    <Compile Include="Models\Workshop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

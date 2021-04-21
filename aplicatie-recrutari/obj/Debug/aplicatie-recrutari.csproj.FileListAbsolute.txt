@@ -436,3 +436,5 @@ C:\Users\Andreea\Desktop\Practica\aplicatie-recrutari\aplicatie-recrutari\obj\De
 C:\Users\Andreea\Desktop\Practica\aplicatie-recrutari\aplicatie-recrutari\obj\Debug\aplicatie-recrutari.csproj.CopyComplete
 C:\Users\Andreea\Desktop\Practica\aplicatie-recrutari\aplicatie-recrutari\obj\Debug\aplicatie-recrutari.dll
 C:\Users\Andreea\Desktop\Practica\aplicatie-recrutari\aplicatie-recrutari\obj\Debug\aplicatie-recrutari.pdb
+C:\Users\Andreea\Desktop\test\aplicatie-recrutari\aplicatie-recrutari\obj\Debug\aplicatie_recrutari.Migrations.Initial.resources
+C:\Users\Andreea\Desktop\test\aplicatie-recrutari\aplicatie-recrutari\obj\Debug\aplicatie-recrutari.csproj.GenerateResource.cache

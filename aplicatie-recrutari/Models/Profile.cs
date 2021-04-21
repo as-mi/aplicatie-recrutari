@@ -15,5 +15,6 @@ namespace aplicatie_recrutari.Models
         public string InterviewFeedback { get; set; }
         public string WorkshopFeedback { get; set; }
         public string Status { get; set; }
+        public virtual ICollection<Interview> Interviews { get; set; }
     }
 }

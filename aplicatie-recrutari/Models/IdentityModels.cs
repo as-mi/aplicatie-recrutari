@@ -34,6 +34,8 @@ aplicatie_recrutari.Migrations.Configuration>("DefaultConnection"));
         public DbSet<Preference> Preferences { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Recruitment_Session> Recruitment_Sessions { get; set; }
+        public DbSet<Workshop> Workshops { get; set; }
+        public DbSet<Interview> Interviews { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
