@@ -1,19 +1,19 @@
 ﻿@model aplicatie_recrutari.Models.Recruitment_Session
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Add a new session";
 }
-<h2>@ViewBag.Title</h2>
-@using (Html.BeginForm(actionName: "New", controllerName: "Session", method: FormMethod.Post)) {
-    @Html.Label("Period", "Period:")
+<h2>Add a New Session</h2>
+
+<form method="post" action="/Session/New">
+    @Html.Label("Period", "Session Period")
     <br />
-    @Html.TextBoxFor(b => b.Period, null, new { placeholder = "Type in the period", @class = "formcontrol" })
-    @Html.ValidationMessageFor(b => b.Period, "", new { @class = "text-danger" })
+    @Html.TextBox("Period", null, new { placeholder = "Type in the period", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Period, null, new { @class = "text-danger " })
+    <br /><br />
+    @Html.Label("Year", "Session Year")
     <br />
-    @Html.Label("Year", "Year:")
-    <br />
-    @Html.TextBoxFor(b => b.Year, null, new { placeholder = "Type in the Year", @class = "formcontrol" })
-    @Html.ValidationMessageFor(b => b.Year, "", new { @class = "text-danger" })
-    <br />
-    
-    <button class="btn btn-primary" type="submit">Create</button>
-}
+    @Html.TextBox("Year", null, new { placeholder = "Type in the year", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Year, null, new { @class = "text-danger " })
+    <br /><br />
+    <button class="btn btn-sm btn-success" id="butona" type="submit">Add Session</button>
+</form>

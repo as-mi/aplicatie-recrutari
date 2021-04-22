@@ -255,7 +255,6 @@
     <Content Include="Views\Session\Index.cshtml" />
     <Content Include="Views\Session\New.cshtml" />
     <Content Include="Views\Session\Edit.cshtml" />
-    <Content Include="Views\Session\Delete.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
   </ItemGroup>
