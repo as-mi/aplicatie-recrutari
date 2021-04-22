@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WorkshopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +258,11 @@
     <Content Include="Views\Session\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Session\Show.cshtml" />
+    <Content Include="Views\Workshop\Index.cshtml" />
+    <Content Include="Views\Workshop\Show.cshtml" />
+    <Content Include="Views\Workshop\New.cshtml" />
+    <Content Include="Views\Workshop\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

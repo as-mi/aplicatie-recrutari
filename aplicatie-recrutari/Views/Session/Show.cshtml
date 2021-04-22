@@ -1,0 +1,31 @@
+﻿@model  aplicatie_recrutari.Models.Recruitment_Session
+@{
+    ViewBag.Title = "Show";
+}
+<h2>@ViewBag.Title</h2>
+@Html.Label("Period", "Period:")
+<br />
+<p>@Model.Period</p>
+@Html.Label("Year", "Year:")
+<br />
+<p>@Model.Year</p>
+
+@if (Model.Workshops.Count > 0) {
+    @Html.Label("Workshops", "Workshops:")
+    <br />
+    <ul>
+        @foreach (var workshop in Model.Workshops) {
+            <li>@workshop.WorkshopId</li>
+        }
+    </ul>
+}
+
+@if (Model.Interviews.Count > 0) {
+    @Html.Label("Interviews", "Interviews:")
+    <br />
+    <ul>
+        @foreach (var interview in Model.Interviews) {
+            <li>@interview.InterviewId</li>
+        }
+    </ul>
+}

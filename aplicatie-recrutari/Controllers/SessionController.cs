@@ -16,11 +16,20 @@ namespace aplicatie_recrutari.Controllers
             ViewBag.Recruitment_Sessions = recruitment_sessions;
             return View();
         }
+        public ActionResult Show(int? id) {
+            if (id.HasValue) {
+                Recruitment_Session recruitment_session = db.Recruitment_Sessions.Find(id);
+                if (recruitment_session != null) {
+                    return View(recruitment_session);
+                }
+                return HttpNotFound("Couldn't find the session with id " + id.ToString() + "!");
+            }
+            return HttpNotFound("Missing session id parameter!");
+        }
 
         [HttpGet]
         public ActionResult New() {
             Recruitment_Session recruitment_session = new Recruitment_Session();
-            /*recruitment_session.Genres = new List<Genre>();*/
             return View(recruitment_session);
         }
 
@@ -28,8 +37,6 @@ namespace aplicatie_recrutari.Controllers
         public ActionResult New(Recruitment_Session sessionRequest) {
             try {
                 if (ModelState.IsValid) {
-                    /*sessionRequest.Publisher = db.Publishers
-                   .FirstOrDefault(p => p.PublisherId.Equals(1));*/
                     db.Recruitment_Sessions.Add(sessionRequest);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -57,9 +64,6 @@ namespace aplicatie_recrutari.Controllers
         public ActionResult Edit(int id, Recruitment_Session sessionRequest) {
             try {
                 if (ModelState.IsValid) {
-                    /*Recruitment_Session book = db.Recruitment_Sessions
-                   .Include("Publisher")
-                    .SingleOrDefault(b => b.BookId.Equals(id));*/
                     Recruitment_Session recruitment_session = db.Recruitment_Sessions
                     .SingleOrDefault(b => b.SessionId.Equals(id));
                     if (TryUpdateModel(recruitment_session)) {
@@ -86,8 +90,5 @@ namespace aplicatie_recrutari.Controllers
             }
             return HttpNotFound("Couldn't find the session with id " + id.ToString());
         }
-
-
-
     }
 }
