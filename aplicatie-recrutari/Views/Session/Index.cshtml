@@ -4,7 +4,7 @@
 <h2>@ViewBag.Title</h2>
 @foreach (var session in ViewBag.Recruitment_Sessions)
 {
-    <div class="box">
+    <div class="box" >
 
         <strong>Period:</strong>
         <p class="font-title">@session.Period</p>
@@ -20,18 +20,14 @@
             @Html.HttpMethodOverride(HttpVerbs.Delete)
             <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Session</button>
         </form>
+<br />
 
-        <br />
-        <br />
-
-        <hr />
-        <br />
+ 
     </div>
+    <br>
 }
 
-<br />
+
 <hr />
 <a class="btn btn-primary" id="butona" href="/Session/New">Add Session</a>
-<br />
-<hr />
-<br />
+

@@ -3,20 +3,91 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.box {
+    border: solid 5px #00314a;
+    transition: border-width 0.6s linear;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
+.box:hover {
+        border-width: 10px;
+        
+    }
+
+.btn {
+    font-size: 16px;
+}
+.btn-primary,.btn-success {
+    background-color: #3491bf;
+    border: 0px;
+    
+}
+
+    .btn-primary:hover, .btn-success:hover {
+        background-color: #00314a;
+        
+    }
+
+div {
+    display: block;
+}
+
+.body-content {
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+.navbar {
+    background-color: #fffff;
+    text-color: white;
+}
+
+
+h1 {
+    font-size: 80px;
+    font-weight: bold;
+}
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.cover {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+@media screen and (max-width: 720px) {
+    .cover {
+        left: 50%;
+        margin-left: -512px;
+    }
+    .btn {
+        font-size: 12px;
+    }
+    .box{
+        margin-left:0px;
+        margin-right:0px;
+    }
+}
+
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
