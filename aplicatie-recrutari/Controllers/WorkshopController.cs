@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace aplicatie_recrutari.Controllers
 {
-    [Authorize(Roles = "Editor")]
+    [Authorize(Roles = "Admin")]
     public class WorkshopController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

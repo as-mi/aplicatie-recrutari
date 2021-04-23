@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Interview";
+}
+<h2>@ViewBag.Title</h2>
+@foreach (var interview in ViewBag.Interviews) {
+    <div class="box">
+
+        <h4>Interviu nr: @interview.InterviewId</h4>
+        <strong>Timestamp:</strong>
+        <p class="font-title">@interview.Timestamp</p>
+        <br />
+        <br />
+        <a class="btn btn-success pull-left" id="buton" href="/Interview/Show/@interview.InterviewId">Displaying Interview</a>
+
+        <a class="btn btn-success pull-left" id="butona" href="/Interview/Edit/@interview.InterviewId">Edit Interview</a>
+
+        <form method="post" action="/Interview/Delete/@interview.InterviewId">
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+            <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Interview</button>
+        </form>
+
+        <br />
+        <br />
+
+        <hr />
+        <br />
+    </div>
+}
+
+<br />
+<hr />
+<a class="btn btn-primary" id="butona" href="/Interview/New">Add Interview</a>
+<br />
+<hr />
+<br />

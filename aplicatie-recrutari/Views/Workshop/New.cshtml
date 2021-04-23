@@ -7,7 +7,7 @@
 <form method="post" action="/Workshop/New">
     @Html.Label("Timestamp", "Timestamp")
     <br />
-    @Html.TextBox("Timestamp", null, new { placeholder = "Type in the timestamp (forma 2020-04-05 12:00)", @class = "form-control" })
+    @Html.TextBox("Timestamp", null, new { placeholder = "Type in the timestamp", @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Timestamp, null, new { @class = "text-danger " })
     <br /><br />
     @Html.Label("DepartmentId1", "DepartmentId1")
