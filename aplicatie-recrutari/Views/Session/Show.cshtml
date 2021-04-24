@@ -1,31 +1,64 @@
 ﻿@model  aplicatie_recrutari.Models.Recruitment_Session
 @{
-    ViewBag.Title = "Show";
+    ViewBag.Title = "Displaying Session";
 }
 <h2>@ViewBag.Title</h2>
-@Html.Label("Period", "Period:")
-<br />
-<p>@Model.Period</p>
-@Html.Label("Year", "Year:")
-<br />
-<p>@Model.Year</p>
+<h3>@Html.Label("Period", "Session Period:")</h3>
+<h4><strong>@Model.Period</strong></h4>
+<h3>@Html.Label("Year", "Year:")</h3>
+<h4><strong>@Model.Year</strong></h4>
 
-@if (Model.Workshops.Count > 0) {
-    @Html.Label("Workshops", "Workshops:")
+@if (Model.Workshops.Count > 0)
+{
+    <h3>@Html.Label("Workshops", "Workshops:")</h3>
     <br />
     <ul>
-        @foreach (var workshop in Model.Workshops) {
-            <li>@workshop.WorkshopId</li>
+        @foreach (var workshop in Model.Workshops)
+        {
+            <div class="box">
+                <p>Workshop number @workshop.WorkshopId from @workshop.Timestamp</p>
+                <br /><br />
+                <a class="btn btn-success pull-left" id="buton" href="/Workshop/Show/@workshop.WorkshopId">Displaying Workshop</a>
+                <a class="btn btn-success pull-left" id="butona" href="/Workshop/Edit/@workshop.WorkshopId">Edit Workshop</a>
+
+                <form method="post" action="/Workshop/Delete/@workshop.WorkshopId">
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Workshop</button>
+                </form>
+                <br />
+            </div>
+            <br />
+        }
+    </ul>
+
+}
+<br />
+
+<a class="btn btn-primary" id="butona" href="/Workshop/New">Add Workshop</a>
+<br />
+<hr />
+
+@if (Model.Interviews.Count > 0)
+{
+    <h3>@Html.Label("Interviews", "Interviews:")</h3>
+    <br />
+    <ul>
+        @foreach (var interview in Model.Interviews)
+        {
+            <div class="box">
+                <p>Interview number @interview.InterviewId from @interview.Timestamp</p>
+                <embed /><br />
+                <a class="btn btn-success pull-left" id="buton" href="/Interview/Show/@interview.InterviewId">Displaying Interview</a>
+                <a class="btn btn-success pull-left" id="butona" href="/Interview/Edit/@interview.InterviewId">Edit Interview</a>
+
+                <form method="post" action="/Workshop/Delete/@interview.InterviewId">
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Interview</button>
+                </form>
+                <br />
+            </div>
         }
     </ul>
 }
-
-@if (Model.Interviews.Count > 0) {
-    @Html.Label("Interviews", "Interviews:")
-    <br />
-    <ul>
-        @foreach (var interview in Model.Interviews) {
-            <li>@interview.InterviewId</li>
-        }
-    </ul>
-}
+<br />
+<a class="btn btn-primary" id="butona" href="/Interview/New">Add Interview</a>
