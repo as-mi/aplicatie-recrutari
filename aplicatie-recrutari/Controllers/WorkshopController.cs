@@ -56,14 +56,14 @@ namespace aplicatie_recrutari.Controllers
 
             if (id.HasValue) {
                 Workshop workshop = db.Workshops.Find(id);
-                if (SessionId.HasValue)
-                {
-                    workshop.SessionId = SessionId.Value;
-                }
                 if (workshop == null) {
                     return HttpNotFound("Couldn't find the workshop with id " + id.ToString());
                 }
                 workshop.AllDepartments = GetAllDepartments();
+                if (SessionId.HasValue)
+                {
+                    workshop.SessionId = SessionId.Value;
+                }
                 return View(workshop);
             }
             return HttpNotFound("Missing workshop id parameter!");

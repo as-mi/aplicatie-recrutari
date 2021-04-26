@@ -3,7 +3,8 @@
     ViewBag.Title = "Update Interview";
 }
 <h2>@ViewBag.Title</h2>
-@using (Html.BeginForm(actionName: "Edit", controllerName: "Interview")) {
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Interview"))
+{
     @Html.HttpMethodOverride(HttpVerbs.Put)
     <!--camp ascuns pentru a retine id-ul obiectului-->
     @Html.HiddenFor(b => b.InterviewId)
@@ -14,22 +15,19 @@
     @Html.ValidationMessageFor(b => b.Timestamp, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("DepartmentId", "DepartmentId:")
-    <br />
-    @Html.Editor("DepartmentId", new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(b => b.DepartmentId, "", new { @class = "text-danger" })
-    <br />
-    <br />
     @Html.Label("ProfileId", "ProfileId:")
     <br />
     @Html.Editor("ProfileId", new { htmlAttributes = new { @class = "form-control" } })
     @Html.ValidationMessageFor(b => b.ProfileId, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("SessionId", "SessionId:")
+    @Html.Label("DepartmentId", "DepartmentId")
     <br />
-    @Html.Editor("SessionId", new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(b => b.SessionId, "", new { @class = "text-danger" })
+    @Html.DropDownListFor(b => b.DepartmentId, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.DepartmentId, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.HiddenFor(b => b.SessionId)
     <br />
     <br />
     <button class="btn btn-primary" type="submit">Update</button>

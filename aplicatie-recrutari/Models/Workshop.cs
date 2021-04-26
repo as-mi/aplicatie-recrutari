@@ -23,6 +23,7 @@ namespace aplicatie_recrutari.Models {
         public int SessionId { get; set; }
         public virtual Recruitment_Session Session { get; set; }
 
+        [NotMapped]
         public IEnumerable<SelectListItem> AllDepartments { get; set; }
     }
 }

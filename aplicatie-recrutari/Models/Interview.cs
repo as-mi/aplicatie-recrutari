@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace aplicatie_recrutari.Models {
     public class Interview {
@@ -22,5 +23,8 @@ namespace aplicatie_recrutari.Models {
         [Column("ProfileId")]
         public int ProfileId { get; set; }
         public virtual Profile Profile { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem> AllDepartments { get; set; }
     }
 }

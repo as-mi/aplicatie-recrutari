@@ -15,13 +15,13 @@
     @Html.ValidationMessageFor(b => b.Timestamp, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("Department1", "Department1")
+    @Html.Label("DepartmentId1", "DepartmentId1")
     <br />
     @Html.DropDownListFor(b => b.DepartmentId1, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
     @Html.ValidationMessageFor(b => b.DepartmentId1, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("Department2", "Department2")
+    @Html.Label("DepartmentId2", "DepartmentId2")
     <br />
     @Html.DropDownListFor(b => b.DepartmentId2, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
     @Html.ValidationMessageFor(b => b.DepartmentId2, "", new { @class = "text-danger" })

@@ -51,7 +51,7 @@
                 <a class="btn btn-success pull-left" id="buton" href="/Interview/Show/@interview.InterviewId">Displaying Interview</a>
                 <a class="btn btn-success pull-left" id="butona" href="/Interview/Edit/@interview.InterviewId">Edit Interview</a>
 
-                <form method="post" action="/Workshop/Delete/@interview.InterviewId">
+                <form method="post" action="/Interview/Delete/@interview.InterviewId">
                     @Html.HttpMethodOverride(HttpVerbs.Delete)
                     <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Interview</button>
                 </form>
@@ -61,4 +61,4 @@
     </ul>
 }
 <br />
-<a class="btn btn-primary" id="butona" href="/Interview/New">Add Interview</a>
+<a class="btn btn-primary" id="butona" href="/Interview/New/@Model.SessionId">Add Interview</a>
