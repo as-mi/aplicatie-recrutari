@@ -11,11 +11,7 @@ namespace aplicatie_recrutari.Controllers
     public class WorkshopController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        public ActionResult Index() {
-            List<Workshop> workshops = db.Workshops.ToList();
-            ViewBag.Workshops = workshops;
-            return View();
-        }
+        
         public ActionResult Show(int? id) {
             if (id.HasValue) {
                 Workshop workshop = db.Workshops.Find(id);
@@ -28,18 +24,25 @@ namespace aplicatie_recrutari.Controllers
         }
 
         [HttpGet]
-        public ActionResult New() {
+        public ActionResult New(int? id) {
             Workshop workshop = new Workshop();
+            workshop.AllDepartments = GetAllDepartments();
+            if (id.HasValue)
+            {
+                workshop.SessionId = id.Value;
+            }
             return View(workshop);
         }
 
         [HttpPost]
-        public ActionResult New(Workshop workshopRequest) {
+        public ActionResult New(Workshop workshopRequest, int SessionId) {
             try {
+                workshopRequest.AllDepartments = GetAllDepartments();
+                workshopRequest.SessionId = SessionId;
                 if (ModelState.IsValid) {
                     db.Workshops.Add(workshopRequest);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToRoute(new { controller = "Workshop", action = "Show", id = workshopRequest.WorkshopId });
                 }
                 return View(workshopRequest);
             }
@@ -49,20 +52,28 @@ namespace aplicatie_recrutari.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int? id) {
+        public ActionResult Edit(int? id, int? SessionId) {
+
             if (id.HasValue) {
                 Workshop workshop = db.Workshops.Find(id);
+                if (SessionId.HasValue)
+                {
+                    workshop.SessionId = SessionId.Value;
+                }
                 if (workshop == null) {
                     return HttpNotFound("Couldn't find the workshop with id " + id.ToString());
                 }
+                workshop.AllDepartments = GetAllDepartments();
                 return View(workshop);
             }
             return HttpNotFound("Missing workshop id parameter!");
         }
 
         [HttpPut]
-        public ActionResult Edit(int id, Workshop workshopRequest) {
+        public ActionResult Edit(int id, Workshop workshopRequest, int SessionId) {
             try {
+                workshopRequest.AllDepartments = GetAllDepartments();
+                workshopRequest.SessionId = SessionId;
                 if (ModelState.IsValid) {
                     Workshop workshop = db.Workshops
                     .SingleOrDefault(b => b.WorkshopId.Equals(id));
@@ -73,7 +84,7 @@ namespace aplicatie_recrutari.Controllers
                         workshop.SessionId = workshopRequest.SessionId;
                         db.SaveChanges();
                     }
-                    return RedirectToAction("Index");
+                    return RedirectToRoute(new { controller = "Workshop", action = "Show", id = workshop.WorkshopId });
                 }
                 return View(workshopRequest);
             }
@@ -85,12 +96,30 @@ namespace aplicatie_recrutari.Controllers
         [HttpDelete]
         public ActionResult Delete(int id) {
             Workshop workshop = db.Workshops.Find(id);
+            int SessionId = workshop.SessionId;
             if (workshop != null) {
                 db.Workshops.Remove(workshop);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Session", action = "Show", id = SessionId });
             }
             return HttpNotFound("Couldn't find the workshop with id " + id.ToString());
+        }
+
+        [NonAction]
+        public IEnumerable<SelectListItem> GetAllDepartments()
+        {
+            var selectList = new List<SelectListItem>();
+
+            var departments = from department in db.Departments select department;
+            foreach (var dep in departments)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = dep.DepartmentId.ToString(),
+                    Text = dep.Name.ToString()
+                });
+            }
+            return selectList;
         }
     }
 }

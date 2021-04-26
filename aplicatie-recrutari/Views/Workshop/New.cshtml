@@ -10,20 +10,17 @@
     @Html.TextBox("Timestamp", null, new { placeholder = "Type in the timestamp", @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Timestamp, null, new { @class = "text-danger " })
     <br /><br />
-    @Html.Label("DepartmentId1", "DepartmentId1")
+    @Html.Label("Department1", "Department1")
     <br />
-    @Html.TextBox("DepartmentId1", null, new { placeholder = "Type in the DepartmentId1", @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.DepartmentId1, null, new { @class = "text-danger " })
+    @Html.DropDownListFor(b => b.DepartmentId1, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.DepartmentId1, "", new { @class = "text-danger" })
     <br /><br />
-    @Html.Label("DepartmentId2", "DepartmentId2")
+    @Html.Label("Department2", "Department2")
     <br />
-    @Html.TextBox("DepartmentId2", null, new { placeholder = "Type in the DepartmentId2", @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.DepartmentId2, null, new { @class = "text-danger " })
+    @Html.DropDownListFor(b => b.DepartmentId2, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.DepartmentId2, "", new { @class = "text-danger" })
     <br /><br />
-    @Html.Label("SessionId", "SessionId")
-    <br />
-    @Html.TextBox("SessionId", null, new { placeholder = "Type in the SessionId", @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.SessionId, null, new { @class = "text-danger " })
+    @Html.HiddenFor(b => b.SessionId)
     <br /><br />
     <button class="btn btn-sm btn-success" id="butona" type="submit">Add Workshop</button>
 </form>

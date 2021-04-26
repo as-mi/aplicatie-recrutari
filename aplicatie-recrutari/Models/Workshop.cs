@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace aplicatie_recrutari.Models {
     public class Workshop {
@@ -21,5 +22,7 @@ namespace aplicatie_recrutari.Models {
         [Column("SessionId")]
         public int SessionId { get; set; }
         public virtual Recruitment_Session Session { get; set; }
+
+        public IEnumerable<SelectListItem> AllDepartments { get; set; }
     }
 }
