@@ -42,7 +42,8 @@ namespace aplicatie_recrutari.Controllers
                 if (ModelState.IsValid) {
                     db.Workshops.Add(workshopRequest);
                     db.SaveChanges();
-                    return RedirectToRoute(new { controller = "Workshop", action = "Show", id = workshopRequest.WorkshopId });
+                    /*return RedirectToRoute(new { controller = "Workshop", action = "Show", id = workshopRequest.WorkshopId });*/
+                    return RedirectToRoute(new { controller = "Session", action = "Show", id = workshopRequest.SessionId });
                 }
                 return View(workshopRequest);
             }
@@ -84,7 +85,8 @@ namespace aplicatie_recrutari.Controllers
                         workshop.SessionId = workshopRequest.SessionId;
                         db.SaveChanges();
                     }
-                    return RedirectToRoute(new { controller = "Workshop", action = "Show", id = workshop.WorkshopId });
+                    /*return RedirectToRoute(new { controller = "Workshop", action = "Show", id = workshop.WorkshopId });*/
+                    return RedirectToRoute(new { controller = "Session", action = "Show", id = workshop.SessionId });
                 }
                 return View(workshopRequest);
             }

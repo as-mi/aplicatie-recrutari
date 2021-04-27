@@ -41,7 +41,8 @@ namespace aplicatie_recrutari.Controllers
                 if (ModelState.IsValid) {
                     db.Interviews.Add(interviewRequest);
                     db.SaveChanges();
-                    return RedirectToRoute(new { controller = "Interview", action = "Show", id = interviewRequest.InterviewId });
+                    /*return RedirectToRoute(new { controller = "Interview", action = "Show", id = interviewRequest.InterviewId });*/
+                    return RedirectToRoute(new { controller = "Session", action = "Show", id = interviewRequest.SessionId });
                 }
                 return View(interviewRequest);
             }
@@ -82,7 +83,8 @@ namespace aplicatie_recrutari.Controllers
                         interview.SessionId = interviewRequest.SessionId;
                         db.SaveChanges();
                     }
-                    return RedirectToRoute(new { controller = "Interview", action = "Show", id = interviewRequest.InterviewId });
+                    /*return RedirectToRoute(new { controller = "Interview", action = "Show", id = interview.InterviewId });*/
+                    return RedirectToRoute(new { controller = "Session", action = "Show", id = interview.SessionId });
                 }
                 return View(interviewRequest);
             }
