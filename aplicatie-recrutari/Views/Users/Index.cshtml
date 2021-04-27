@@ -19,13 +19,13 @@
                 <td>@user.Email</td>
                 @if (User.IsInRole("Admin"))
                 {
-                    <td><a class="btn btn-sm button" href="/Users/Edit/@user.Id"> Edit User</a></td>
+                    <td><a class="btn btn-primary" href="/Users/Edit/@user.Id"> Edit User</a></td>
                     <td>
                         @using (Html.BeginForm(actionName: "Delete", controllerName: "Users", routeValues: new { id = @user.Id }))
                         {
                             @Html.HttpMethodOverride(HttpVerbs.Delete)
-                            <br />
-                            <button class="btn btn-sm button" type="submit">Delete User</button>
+                            
+                            <button class="btn btn-danger" type="submit">Delete User</button>
                         }
                     </td>
                 }

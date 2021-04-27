@@ -18,16 +18,17 @@
                     <span class="icon-bar"></span>
                 </button>
                 <img src="~/Media/logo.png" style="height:50px; width:50px; padding:5px;" />
-                @Html.ActionLink("Recrutări", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Recruitment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    
+
                     @if (User.IsInRole("Admin"))
-                    { 
+                    {
                         <li>@Html.ActionLink("Session", "Index", "Session")</li>
+                        <li>@Html.ActionLink("Users", "Index", "Users")</li>
                     }
-                    
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
