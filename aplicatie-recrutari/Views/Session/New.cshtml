@@ -1,0 +1,19 @@
+﻿@model aplicatie_recrutari.Models.Recruitment_Session
+@{
+    ViewBag.Title = "Adauga Sesiune";
+}
+<h2>Adauga Sesiune</h2>
+
+<form method="post" action="/Session/New">
+    @Html.Label("Period", "Session Period")
+    <br />
+    @Html.TextBox("Period", null, new { placeholder = "Type in the period", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Period, null, new { @class = "text-danger " })
+    <br /><br />
+    @Html.Label("Year", "Session Year")
+    <br />
+    @Html.TextBox("Year", null, new { placeholder = "Type in the year", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Year, null, new { @class = "text-danger " })
+    <br /><br />
+    <button class="btn btn-sm btn-success" id="butona" type="submit">Adauga Sesiune</button>
+</form>

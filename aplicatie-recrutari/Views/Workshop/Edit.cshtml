@@ -1,0 +1,34 @@
+﻿@model aplicatie_recrutari.Models.Workshop
+@{
+    ViewBag.Title = "Editeaza Workshop";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Workshop"))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    <!--camp ascuns pentru a retine id-ul obiectului-->
+    @Html.HiddenFor(b => b.WorkshopId)
+    <br />
+    @Html.Label("Timestamp", "Timestamp:")
+    <br />
+    @Html.EditorFor(b => b.Timestamp, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.Timestamp, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("DepartmentId1", "DepartmentId1")
+    <br />
+    @Html.DropDownListFor(b => b.DepartmentId1, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.DepartmentId1, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("DepartmentId2", "DepartmentId2")
+    <br />
+    @Html.DropDownListFor(b => b.DepartmentId2, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.DepartmentId2, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.HiddenFor(b => b.SessionId)
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Editeaza</button>
+}
