@@ -1,6 +1,6 @@
 ﻿@model aplicatie_recrutari.Models.Recruitment_Session
 @{
-    ViewBag.Title = "Update Session";
+    ViewBag.Title = "Editeaza Sesiune";
 }
 <h2>@ViewBag.Title</h2>
 @using (Html.BeginForm(actionName: "Edit", controllerName: "Session")) {
@@ -20,5 +20,5 @@
     @Html.ValidationMessageFor(b => b.Year, "", new { @class = "text-danger" })
     <br />
     <br />
-    <button class="btn btn-primary" type="submit">Update</button>
+    <button class="btn btn-primary" type="submit">Editeaza</button>
 }

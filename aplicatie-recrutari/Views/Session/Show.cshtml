@@ -1,6 +1,6 @@
 ﻿@model  aplicatie_recrutari.Models.Recruitment_Session
 @{
-    ViewBag.Title = "Displaying Session";
+    ViewBag.Title = "Afisare Sesiune";
 }
 <h2>@ViewBag.Title</h2>
 <h3>@Html.Label("Period", "Session Period:")</h3>
@@ -24,12 +24,12 @@
                         counter1 = counter1 + 1;
                     }
                     <br /><br />
-                    <a class="btn btn-success pull-left" id="buton" href="/Workshop/Show/@workshop.WorkshopId">Displaying Workshop</a>
-                    <a class="btn btn-success pull-left" id="butona" href="/Workshop/Edit/@workshop.WorkshopId">Edit Workshop</a>
+                    <a class="btn btn-success" id="buton" href="/Workshop/Show/@workshop.WorkshopId">Afisare Workshop</a>
+                    <a class="btn btn-success" id="butona" href="/Workshop/Edit/@workshop.WorkshopId">Editeaza Workshop</a>
 
                     <form method="post" action="/Workshop/Delete/@workshop.WorkshopId">
                         @Html.HttpMethodOverride(HttpVerbs.Delete)
-                        <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Workshop</button>
+                        <button class="btn btn-danger" id="butond" type="submit">Stergere Workshop</button>
                     </form>
                     <br />
                 </div>
@@ -60,12 +60,12 @@
                         counter2 = counter2 + 1;
                     }
                     <embed /><br />
-                    <a class="btn btn-success pull-left" id="buton" href="/Interview/Show/@interview.InterviewId">Displaying Interview</a>
-                    <a class="btn btn-success pull-left" id="butona" href="/Interview/Edit/@interview.InterviewId">Edit Interview</a>
+                    <a class="btn btn-success" id="buton" href="/Interview/Show/@interview.InterviewId">Displaying Interview</a>
+                    <a class="btn btn-success" id="butona" href="/Interview/Edit/@interview.InterviewId">Edit Interview</a>
 
                     <form method="post" action="/Interview/Delete/@interview.InterviewId">
                         @Html.HttpMethodOverride(HttpVerbs.Delete)
-                        <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Interview</button>
+                        <button class="btn btn-danger" id="butond" type="submit">Delete Interview</button>
                     </form>
                     <br />
                 </div>

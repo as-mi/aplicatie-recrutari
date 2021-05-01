@@ -1,8 +1,8 @@
 ﻿@model aplicatie_recrutari.Models.Workshop
 @{
-    ViewBag.Title = "Add a new workshop";
+    ViewBag.Title = "Adauga un nou workshop";
 }
-<h2>Add a New Workshop</h2>
+<h2>Adauga un nou workshop</h2>
 
 <form method="post" action="/Workshop/New">
     @Html.Label("Timestamp", "Timestamp")
@@ -22,5 +22,5 @@
     <br /><br />
     @Html.HiddenFor(b => b.SessionId)
     <br /><br />
-    <button class="btn btn-sm btn-success" id="butona" type="submit">Add Workshop</button>
+    <button class="btn btn-sm btn-success" id="butona" type="submit">Adauga Workshop</button>
 </form>

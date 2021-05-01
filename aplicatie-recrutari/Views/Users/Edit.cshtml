@@ -3,7 +3,7 @@
 @{
     /**/
 
-    ViewBag.Title = "Edit User";
+    ViewBag.Title = "Editeaza Utilizator";
 }
 
 <ol class="breadcrumb">
@@ -26,5 +26,5 @@
 <i class="glyphicon glyphicon-th-list"></i>
 <label>Select role:</label> @Html.DropDownList("newRole", new SelectList(Model.AllRoles, "Value", "Text", ViewBag.userRole), null, new { @class = "form-control" })
 <br />
-<button class="btn btn-sm button" type="submit">Modify User Data</button>
+<button class="btn btn-sm button" type="submit">Modifica Date Utilizatori</button>
 }

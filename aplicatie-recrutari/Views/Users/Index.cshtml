@@ -1,13 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Users";
+    ViewBag.Title = "Utilizatori";
 }
 <h2>@ViewBag.Title</h2>
 <table class="table">
     <thead>
     <th>Username</th>
     <th>Email</th>
-    <th>Update</th>
-    <th>Delete</th>
+    <th>Editeaza</th>
+    <th>Stergere</th>
     </thead>
     <tbody>
         @foreach (var user in ViewBag.UsersList)
@@ -19,13 +19,13 @@
                 <td>@user.Email</td>
                 @if (User.IsInRole("Admin"))
                 {
-                    <td><a class="btn btn-primary" href="/Users/Edit/@user.Id"> Edit User</a></td>
+                    <td><a class="btn btn-primary" href="/Users/Edit/@user.Id">Editeaza Utilizator</a></td>
                     <td>
                         @using (Html.BeginForm(actionName: "Delete", controllerName: "Users", routeValues: new { id = @user.Id }))
                         {
                             @Html.HttpMethodOverride(HttpVerbs.Delete)
                             
-                            <button class="btn btn-danger" type="submit">Delete User</button>
+                            <button class="btn btn-danger" type="submit">Stergere Utilizator</button>
                         }
                     </td>
                 }

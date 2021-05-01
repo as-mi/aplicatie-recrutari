@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ro">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Join our team</title>
+    <title>@ViewBag.Title - Alatură-te echipei noastre</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -18,15 +19,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 <img src="~/Media/logo.png" style="height:50px; width:50px; padding:5px;" />
-                @Html.ActionLink("Recruitment", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Recrutări", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
                     @if (User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Session", "Index", "Session")</li>
-                        <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                        <li>@Html.ActionLink("Sesiuni", "Index", "Session")</li>
+                        <li>@Html.ActionLink("Utilizatori", "Index", "Users")</li>
                     }
 
                 </ul>
@@ -42,7 +43,7 @@
             {
             <p style="color:white;">&copy; @DateTime.Now.Year - Asociația Studenților la Matematică și Informatică</p>
             } else { <p>&copy; @DateTime.Now.Year - Asociația Studenților la Matematică și Informatică</p>  }
-            
+
         </footer>
     </div>
 

@@ -1,24 +1,24 @@
 ﻿@{
-    ViewBag.Title = "Session";
+    ViewBag.Title = "Sesiuni";
 }
 <h2>@ViewBag.Title</h2>
 @foreach (var session in ViewBag.Recruitment_Sessions)
 {
     <div class="box" >
 
-        <strong>Period:</strong>
+        <strong>Perioada:</strong>
         <p class="font-title">@session.Period</p>
-        <strong>Year:</strong>
+        <strong>An:</strong>
         <p>@session.Year</p>
         <br />
         <br />
-        <a class="btn btn-success pull-left" id="buton" href="/Session/Show/@session.SessionId">Displaying Session</a>
+        <a class="btn btn-success" id="buton" href="/Session/Show/@session.SessionId">Afisare Sesiune</a>
 
-        <a class="btn btn-success pull-left" id="butona" href="/Session/Edit/@session.SessionId">Edit Session</a>
+        <a class="btn btn-success" id="butona" href="/Session/Edit/@session.SessionId">Editare Sesiune</a>
 
         <form method="post" action="/Session/Delete/@session.SessionId">
             @Html.HttpMethodOverride(HttpVerbs.Delete)
-            <button class="btn btn-danger pull-right" id="butond" type="submit">Delete Session</button>
+            <button class="btn btn-danger" id="butond" type="submit">Ștergere Sesiune</button>
         </form>
 <br />
 

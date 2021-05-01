@@ -1,6 +1,6 @@
 ﻿@model aplicatie_recrutari.Models.Workshop
 @{
-    ViewBag.Title = "Update Workshop";
+    ViewBag.Title = "Editeaza Workshop";
 }
 <h2>@ViewBag.Title</h2>
 @using (Html.BeginForm(actionName: "Edit", controllerName: "Workshop"))
@@ -30,5 +30,5 @@
     @Html.HiddenFor(b => b.SessionId)
     <br />
     <br />
-    <button class="btn btn-primary" type="submit">Update</button>
+    <button class="btn btn-primary" type="submit">Editeaza</button>
 }
