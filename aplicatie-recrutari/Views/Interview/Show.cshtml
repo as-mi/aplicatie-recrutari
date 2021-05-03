@@ -5,15 +5,10 @@
 <br />
 <p>@Model.Timestamp</p>
 
-
-@Html.Label("DepartmentId", "DepartmentId:")
+@Html.Label("departmentName", "Nume departament:")
 <br />
-<p>@Model.DepartmentId</p>
+<p>@ViewBag.departmentName</p>
 
-@Html.Label("LastName", "Nume Candidat:")
+@Html.Label("candidateName", "Nume Candidat:")
 <br />
-<p>@ViewBag.lastName</p>
-
-@Html.Label("FirstName", "Prenume Candidat:")
-<br />
-<p>@ViewBag.firstName</p>
+<p>@ViewBag.candidateName</p>

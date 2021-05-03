@@ -10,12 +10,12 @@
     @Html.TextBox("Timestamp", null, new { placeholder = "Type in the timestamp", @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Timestamp, null, new { @class = "text-danger " })
     <br /><br />
-    @Html.Label("DepartmentId1", "DepartmentId1")
+    @Html.Label("DepartmentId1", "Nume departament 1:")
     <br />
     @Html.DropDownListFor(b => b.DepartmentId1, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
     @Html.ValidationMessageFor(b => b.DepartmentId1, "", new { @class = "text-danger" })
     <br /><br />
-    @Html.Label("DepartmentId2", "DepartmentId2")
+    @Html.Label("DepartmentId2", "Nume departament 2:")
     <br />
     @Html.DropDownListFor(b => b.DepartmentId2, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
     @Html.ValidationMessageFor(b => b.DepartmentId2, "", new { @class = "text-danger" })

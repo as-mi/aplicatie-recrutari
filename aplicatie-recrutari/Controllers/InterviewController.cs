@@ -15,10 +15,14 @@ namespace aplicatie_recrutari.Controllers
             if (id.HasValue) {
                 Interview interview = db.Interviews.Find(id);
                 if (interview != null) {
-                    int idProfil = interview.ProfileId;
-                    Profile profile = db.Profiles.Find(idProfil);
-                    ViewBag.lastName = profile.LastName;
-                    ViewBag.firstName = profile.FirstName;
+                    int profileId = interview.ProfileId;
+                    Profile profile = db.Profiles.Find(profileId);
+                    string name = profile.LastName + ' ' + profile.FirstName;
+                    ViewBag.candidateName = name;
+
+                    int departmentId = interview.DepartmentId;
+                    Department department = db.Departments.Find(departmentId);
+                    ViewBag.departmentName = department.Name;
                     return View(interview);
                 }
                 return HttpNotFound("Couldn't find the interview with id " + id.ToString() + "!");

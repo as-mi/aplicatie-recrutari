@@ -21,7 +21,7 @@
     @Html.ValidationMessageFor(b => b.ProfileId, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("DepartmentId", "DepartmentId")
+    @Html.Label("DepartmentId", "Nume departament")
     <br />
     @Html.DropDownListFor(b => b.DepartmentId, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
     @Html.ValidationMessageFor(b => b.DepartmentId, "", new { @class = "text-danger" })

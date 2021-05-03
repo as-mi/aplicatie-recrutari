@@ -16,6 +16,14 @@ namespace aplicatie_recrutari.Controllers
             if (id.HasValue) {
                 Workshop workshop = db.Workshops.Find(id);
                 if (workshop != null) {
+                    int? departmentId1 = workshop.DepartmentId1;
+                    Department department1 = db.Departments.Find(departmentId1);
+                    ViewBag.departmentName1 = department1.Name;
+
+                    int? departmentId2 = workshop.DepartmentId2;
+                    Department department2 = db.Departments.Find(departmentId2);
+                    ViewBag.departmentName2 = department2.Name;
+
                     return View(workshop);
                 }
                 return HttpNotFound("Couldn't find the workshop with id " + id.ToString() + "!");
