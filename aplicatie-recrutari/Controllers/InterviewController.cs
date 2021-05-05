@@ -15,7 +15,7 @@ namespace aplicatie_recrutari.Controllers
             if (id.HasValue) {
                 Interview interview = db.Interviews.Find(id);
                 if (interview != null) {
-                    int profileId = interview.ProfileId;
+                    int profileId = interview.Profile.ProfileId;
                     Profile profile = db.Profiles.Find(profileId);
                     string name = profile.LastName + ' ' + profile.FirstName;
                     ViewBag.candidateName = name;
@@ -34,6 +34,7 @@ namespace aplicatie_recrutari.Controllers
         public ActionResult New(int? id) {
             Interview interview = new Interview();
             interview.AllDepartments = GetAllDepartments();
+            interview.AllProfiles = GetAllProfiles();
             if (id.HasValue)
             {
                 interview.SessionId = id.Value;
@@ -45,6 +46,7 @@ namespace aplicatie_recrutari.Controllers
         public ActionResult New(Interview interviewRequest, int SessionId) {
             try {
                 interviewRequest.AllDepartments = GetAllDepartments();
+                interviewRequest.AllProfiles = GetAllProfiles();
                 interviewRequest.SessionId = SessionId;
                 if (ModelState.IsValid) {
                     db.Interviews.Add(interviewRequest);
@@ -67,6 +69,7 @@ namespace aplicatie_recrutari.Controllers
                     return HttpNotFound("Couldn't find the interview with id " + id.ToString());
                 }
                 interview.AllDepartments = GetAllDepartments();
+                interview.AllProfiles = GetAllProfiles();
                 if (SessionId.HasValue)
                 {
                     interview.SessionId = SessionId.Value;
@@ -80,6 +83,7 @@ namespace aplicatie_recrutari.Controllers
         public ActionResult Edit(int id, Interview interviewRequest, int SessionId) {
             try {
                 interviewRequest.AllDepartments = GetAllDepartments();
+                interviewRequest.AllProfiles = GetAllProfiles();
                 interviewRequest.SessionId = SessionId;
                 if (ModelState.IsValid) {
                     Interview interview = db.Interviews
@@ -126,6 +130,20 @@ namespace aplicatie_recrutari.Controllers
                 {
                     Value = dep.DepartmentId.ToString(),
                     Text = dep.Name.ToString()
+                });
+            }
+            return selectList;
+        }
+
+        [NonAction]
+        public IEnumerable<SelectListItem> GetAllProfiles() {
+            var selectList = new List<SelectListItem>();
+
+            var profiles = from profile in db.Profiles select profile;
+            foreach (var p in profiles) {
+                selectList.Add(new SelectListItem {
+                    Value = p.ProfileId.ToString(),
+                    Text = p.Email.ToString()
                 });
             }
             return selectList;

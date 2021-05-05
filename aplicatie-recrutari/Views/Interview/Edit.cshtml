@@ -3,8 +3,7 @@
     ViewBag.Title = "Editeaza Interview";
 }
 <h2>@ViewBag.Title</h2>
-@using (Html.BeginForm(actionName: "Edit", controllerName: "Interview"))
-{
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Interview")) {
     @Html.HttpMethodOverride(HttpVerbs.Put)
     <!--camp ascuns pentru a retine id-ul obiectului-->
     @Html.HiddenFor(b => b.InterviewId)
@@ -15,9 +14,9 @@
     @Html.ValidationMessageFor(b => b.Timestamp, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("ProfileId", "ProfileId:")
+    @Html.Label("ProfileId", "Email candidat:")
     <br />
-    @Html.Editor("ProfileId", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.DropDownListFor(b => b.ProfileId, new SelectList(Model.AllProfiles, "Value", "Text"), "Alege un candidat", new { @class = "form-control" })
     @Html.ValidationMessageFor(b => b.ProfileId, "", new { @class = "text-danger" })
     <br />
     <br />

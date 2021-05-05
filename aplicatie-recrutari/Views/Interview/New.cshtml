@@ -10,10 +10,10 @@
     @Html.TextBox("Timestamp", null, new { placeholder = "Scrie Timestamp", @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Timestamp, null, new { @class = "text-danger " })
     <br /><br />
-    @Html.Label("ProfileId", "ProfileId")
+    @Html.Label("ProfileId", "Email candidat:")
     <br />
-    @Html.TextBox("ProfileId", null, new { placeholder = "Type in the ProfileId", @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.ProfileId, null, new { @class = "text-danger " })
+    @Html.DropDownListFor(b => b.ProfileId, new SelectList(Model.AllProfiles, "Value", "Text"), "Alege un candidat", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.ProfileId, "", new { @class = "text-danger" })
     <br /><br />
     @Html.Label("DepartmentId", "Nume departament:")
     <br />

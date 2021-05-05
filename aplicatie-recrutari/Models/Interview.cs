@@ -26,5 +26,8 @@ namespace aplicatie_recrutari.Models {
 
         [NotMapped]
         public IEnumerable<SelectListItem> AllDepartments { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem> AllProfiles { get; set; }
     }
 }
