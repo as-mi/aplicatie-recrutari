@@ -87,3 +87,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+#form{
+    text-align: center;
+}

@@ -1,13 +1,13 @@
 ﻿@model aplicatie_recrutari.Models.Interview
 @{
-    ViewBag.Title = "Adauga nou interview";
+    ViewBag.Title = "Adauga interview";
 }
-<h2>Add a New Interview</h2>
+<h2>Adauga un nou Interview</h2>
 
 <form method="post" action="/Interview/New">
     @Html.Label("Timestamp", "Timestamp")
     <br />
-    @Html.TextBox("Timestamp", null, new { placeholder = "Type in the timestamp", @class = "form-control" })
+    @Html.TextBox("Timestamp", null, new { placeholder = "Scrie Timestamp", @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Timestamp, null, new { @class = "text-danger " })
     <br /><br />
     @Html.Label("ProfileId", "ProfileId")
@@ -17,10 +17,10 @@
     <br /><br />
     @Html.Label("DepartmentId", "Nume departament:")
     <br />
-    @Html.DropDownListFor(b => b.DepartmentId, new SelectList(Model.AllDepartments, "Value", "Text"), "Choose a department", new { @class = "form-control" })
+    @Html.DropDownListFor(b => b.DepartmentId, new SelectList(Model.AllDepartments, "Value", "Text"), "Alege un departament", new { @class = "form-control" })
     @Html.ValidationMessageFor(b => b.DepartmentId, "", new { @class = "text-danger" })
     <br /><br />
     @Html.HiddenFor(b => b.SessionId)
     <br /><br />
-    <button class="btn btn-sm btn-success" id="butona" type="submit">Adauga nou interview</button>
+    <button class="btn btn-sm btn-success" id="butona" type="submit">Adauga interview</button>
 </form>

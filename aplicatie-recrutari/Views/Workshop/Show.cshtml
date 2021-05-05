@@ -1,17 +1,18 @@
 ﻿@model  aplicatie_recrutari.Models.Workshop
 @{
-    ViewBag.Title = "Displaying Workshop";
+    ViewBag.Title = "Afisare Workshop";
 }
 <h2>@ViewBag.Title</h2>
-@Html.Label("Timestamp", "Timestamp:")
-<br />
-<p>@Model.Timestamp</p>
+<div class="box">
+    @Html.Label("Timestamp", "Timestamp:")
+    <br />
+    <p>@Model.Timestamp</p>
 
-@Html.Label("departmentName1", "Departament 1:")
-<br />
-<p>@ViewBag.departmentName1</p>
+    @Html.Label("departmentName1", "Departament 1:")
+    <br />
+    <p>@ViewBag.departmentName1</p>
 
-@Html.Label("departmentName2", "Departament 2:")
-<br />
-<p>@ViewBag.departmentName2</p>
-
+    @Html.Label("departmentName2", "Departament 2:")
+    <br />
+    <p>@ViewBag.departmentName2</p>
+</div>

@@ -1,14 +1,16 @@
 ﻿@model  aplicatie_recrutari.Models.Interview
-@{ ViewBag.Title = "Show"; }
+@{ ViewBag.Title = "Afisare interview"; }
 <h2>@ViewBag.Title</h2>
-@Html.Label("Timestamp", "Timestamp:")
-<br />
-<p>@Model.Timestamp</p>
+<div class="box">
+    @Html.Label("Timestamp", "Timestamp:")
+    <br />
+    <p>@Model.Timestamp</p>
 
-@Html.Label("departmentName", "Nume departament:")
-<br />
-<p>@ViewBag.departmentName</p>
+    @Html.Label("departmentName", "Nume departament:")
+    <br />
+    <p>@ViewBag.departmentName</p>
 
-@Html.Label("candidateName", "Nume Candidat:")
-<br />
-<p>@ViewBag.candidateName</p>
+    @Html.Label("candidateName", "Nume Candidat:")
+    <br />
+    <p>@ViewBag.candidateName</p>
+</div>
