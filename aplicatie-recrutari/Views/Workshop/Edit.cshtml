@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Editeaza Workshop";
 }
-<h2>@ViewBag.Title</h2>
 @using (Html.BeginForm(actionName: "Edit", controllerName: "Workshop"))
 {
     @Html.HttpMethodOverride(HttpVerbs.Put)

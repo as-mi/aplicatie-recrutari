@@ -4,6 +4,13 @@
     overflow-x:hidden;
 }
 
+.text-box {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size:20px;
+    padding:10px
+}
 
 .box {
     border: solid 5px rgb(0 49 74 / 0.4);
@@ -23,6 +30,9 @@
     margin: 5px;
 }
 
+.btn-primary a{
+    color:white;
+}
 .btn-primary,.btn-success {
     background-color: #3491bf;
     border: 0px;
@@ -77,13 +87,16 @@ h2 {
     #text h1{
         font-size:60px;
     }
-}
+
+    }
 @media screen and (max-width: 512px) {
     #text h1 {
         font-size: 40px;
     }
 }
+.form-group {
 
+}
 
 .dl-horizontal dt {
     white-space: normal;
@@ -115,12 +128,19 @@ textarea {
     z-index:-1;
     margin-bottom:15px;
     border-radius: 5px;
+    overflow:hidden;
+}
+.formular {
+    position: relative;
+    left: 35%;
+    margin-left: -200px
 }
 .navbar{
     margin:0;
 }
 .showcase h2{
     position:relative;
+    font-size:100px;
     line-height:500px;
 }
 .showcase h3 {
@@ -133,4 +153,6 @@ textarea {
     font-size: 40px;
     font-family: "Times New Roman", "Garamond", serif;
 }
+
+
 

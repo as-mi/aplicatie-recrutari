@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Editeaza Sesiune";
 }
-<h2>@ViewBag.Title</h2>
+
 @using (Html.BeginForm(actionName: "Edit", controllerName: "Session")) {
     @Html.HttpMethodOverride(HttpVerbs.Put)
     <!--camp ascuns pentru a retine id-ul obiectului-->
