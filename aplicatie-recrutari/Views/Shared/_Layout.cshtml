@@ -10,6 +10,19 @@
 
 </head>
 <body>
+    @if (ViewBag.Title == "Sesiuni")
+    {
+        <div class="showcase">
+            <h2>Sesiuni</h2>
+        </div>
+    }
+    else if (ViewBag.Title == "Afisare Sesiune")
+    {
+        <div class="showcase">
+            <h3>@Html.Label("Period", "Perioada sesiunii:") &nbsp<strong>@Model.Period</strong></h3>
+            <h3>@Html.Label("Year", "An:") &nbsp<strong>@Model.Year</strong></h3>
+        </div>
+    }
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -37,13 +50,17 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
-            @if ( ViewBag.Title == "Home Page")
+            @if (ViewBag.Title == "Home Page")
             {
-            <p style="color:white;">&copy; @DateTime.Now.Year - Asociația Studenților la Matematică și Informatică</p>
-            } else { <p>&copy; @DateTime.Now.Year - Asociația Studenților la Matematică și Informatică</p>  }
-
+                <p style="color:white;position:fixed;bottom:0;left:50%;margin-left:-200px;">&copy; @DateTime.Now.Year - Asociația Studenților la Matematică și Informatică</p>
+            }
+            else if(ViewBag.Title != "Home Page" && ViewBag.Title != "Afisare Workshop")
+            { <p style="position:relative;bottom:0;left:50%;margin-left:-200px;">&copy; @DateTime.Now.Year - Asociația Studenților la Matematică și Informatică</p>}
+            @if (ViewBag.Title == "Afisare Workshop")
+            {
+                <p style="position:absolute;bottom:0;left:50%;margin-left:-200px;display:block;">&copy; @DateTime.Now.Year - Asociația Studenților la Matematică și Informatică</p>
+            }
         </footer>
     </div>
 

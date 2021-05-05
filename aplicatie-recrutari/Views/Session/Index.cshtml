@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Sesiuni";
 }
-<h2>@ViewBag.Title</h2>
+
 @foreach (var session in ViewBag.Recruitment_Sessions)
 {
     <div class="box" >
@@ -28,6 +28,8 @@
 }
 
 
-<hr />
-<a class="btn btn-primary" id="butona" href="/Session/New">Adauga Sesiune</a>
 
+<a class="btn btn-primary" id="butona" href="/Session/New">
+    Adaugă Sesiune
+    <span></span><span></span><span></span><span></span>
+</a>

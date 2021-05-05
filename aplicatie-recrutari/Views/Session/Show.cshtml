@@ -2,11 +2,6 @@
 @{
     ViewBag.Title = "Afisare Sesiune";
 }
-<h2>@ViewBag.Title</h2>
-<h3>@Html.Label("Period", "Perioada sesiunii:")</h3>
-<h4><strong>@Model.Period</strong></h4>
-<h3>@Html.Label("Year", "An:")</h3>
-<h4><strong>@Model.Year</strong></h4>
 
 @if (Model.Workshops.Count > 0)
 {
@@ -25,7 +20,7 @@
                     }
                     <br /><br />
                     <a class="btn btn-success" id="buton" href="/Workshop/Show/@workshop.WorkshopId">Afisare Workshop</a>
-                    <a class="btn btn-success" id="butona" href="/Workshop/Edit/@workshop.WorkshopId">Editeaza Workshop</a>
+                    <a class="btn btn-success" id="buton" href="/Workshop/Edit/@workshop.WorkshopId">Editeaza Workshop</a>
 
                     <form method="post" action="/Workshop/Delete/@workshop.WorkshopId">
                         @Html.HttpMethodOverride(HttpVerbs.Delete)
@@ -61,7 +56,7 @@
                     }
                     <embed /><br />
                     <a class="btn btn-success" id="buton" href="/Interview/Show/@interview.InterviewId">Afiseaza Interview</a>
-                    <a class="btn btn-success" id="butona" href="/Interview/Edit/@interview.InterviewId">Editeaza Interview</a>
+                    <a class="btn btn-success" id="buton" href="/Interview/Edit/@interview.InterviewId">Editeaza Interview</a>
 
                     <form method="post" action="/Interview/Delete/@interview.InterviewId">
                         @Html.HttpMethodOverride(HttpVerbs.Delete)
