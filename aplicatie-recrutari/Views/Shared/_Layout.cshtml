@@ -40,8 +40,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                    @if (User.IsInRole("Admin"))
-                    {
+                    @if (User.IsInRole("Editor")) {
+                        <li>@Html.ActionLink("Sesiuni", "Index", "Session")</li>
+                    }
+
+                    @if (User.IsInRole("Admin")) {
                         <li>@Html.ActionLink("Sesiuni", "Index", "Session")</li>
                         <li>@Html.ActionLink("Utilizatori", "Index", "Users")</li>
                     }

@@ -2,10 +2,8 @@
     ViewBag.Title = "Sesiuni";
 }
 
-@foreach (var session in ViewBag.Recruitment_Sessions)
-{
-    <div class="box" >
-
+@foreach (var session in ViewBag.Recruitment_Sessions) {
+    <div class="box">
         <strong>Perioada:</strong>
         <p class="font-title">@session.Period</p>
         <strong>An:</strong>
@@ -14,22 +12,25 @@
         <br />
         <a class="btn btn-success" id="buton" href="/Session/Show/@session.SessionId">Afisare Sesiune</a>
 
-        <a class="btn btn-success" id="butone" href="/Session/Edit/@session.SessionId">Editare Sesiune</a>
+        @if (User.IsInRole("Admin")) {
+            <a class="btn btn-success" id="butone" href="/Session/Edit/@session.SessionId">Editare Sesiune</a>
 
-        <form method="post" action="/Session/Delete/@session.SessionId">
-            @Html.HttpMethodOverride(HttpVerbs.Delete)
-            <button class="btn btn-danger" id="butond" type="submit">Ștergere Sesiune</button>
-        </form>
-<br />
+            <form method="post" action="/Session/Delete/@session.SessionId">
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button class="btn btn-danger" id="butond" type="submit">Ștergere Sesiune</button>
+            </form>
+            <br />
+        }
 
- 
     </div>
     <br>
+
 }
 
 
-
-<a class="btn btn-primary" id="butona" href="/Session/New">
-    Adaugă Sesiune
-    <span></span><span></span><span></span><span></span>
-</a>
+@if (User.IsInRole("Admin")) {
+    <a class="btn btn-primary" id="butona" href="/Session/New">
+        Adaugă Sesiune
+        <span></span><span></span><span></span><span></span>
+    </a>
+}

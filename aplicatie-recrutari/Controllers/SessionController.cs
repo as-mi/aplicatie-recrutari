@@ -7,15 +7,16 @@ using System.Web.Mvc;
 
 namespace aplicatie_recrutari.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class SessionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        [Authorize(Roles = "Admin, Editor")]
         public ActionResult Index() {
             List<Recruitment_Session> recruitment_sessions = db.Recruitment_Sessions.ToList();
             ViewBag.Recruitment_Sessions = recruitment_sessions;
             return View();
         }
+        [Authorize(Roles = "Admin, Editor")]
         public ActionResult Show(int? id) {
             if (id.HasValue) {
                 Recruitment_Session recruitment_session = db.Recruitment_Sessions.Find(id);
@@ -27,12 +28,14 @@ namespace aplicatie_recrutari.Controllers
             return HttpNotFound("Missing session id parameter!");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult New() {
             Recruitment_Session recruitment_session = new Recruitment_Session();
             return View(recruitment_session);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult New(Recruitment_Session sessionRequest) {
             try {
@@ -48,6 +51,7 @@ namespace aplicatie_recrutari.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Edit(int? id) {
             if (id.HasValue) {
@@ -60,6 +64,7 @@ namespace aplicatie_recrutari.Controllers
             return HttpNotFound("Missing session id parameter!");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public ActionResult Edit(int id, Recruitment_Session sessionRequest) {
             try {
@@ -80,6 +85,7 @@ namespace aplicatie_recrutari.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public ActionResult Delete(int id) {
             Recruitment_Session recruitment_session = db.Recruitment_Sessions.Find(id);
